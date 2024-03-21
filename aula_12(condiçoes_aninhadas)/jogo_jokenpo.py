@@ -1,1 +1,0 @@
-#crie um progrma que faça o computador jogar jokenpo com você. pedra papel e tesoura
