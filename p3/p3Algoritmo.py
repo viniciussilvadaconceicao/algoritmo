@@ -1,13 +1,23 @@
+def gerenciamento():
+    print('='*70)
+    print('''Bem vindo(a) caro bibliotecario(a) ao sitema de gerenciamento da biblioteca digital universitária.
+digite o numero da opção que deseja escolher:
+        
+ATENÇÃO: lembre que para acessar uma das opções abaixo precisa digitar um numero:
+          
+          [1]''')
+
 def menu_principal():
     from time import sleep
     print("="*70)
     print('''Bem vindo(a) ao meu sistema para uma biblioteca digital universitária. 
 escolha o numero da opção que deseja acessar: 
+          
 ATENÇÃO: lembre que para acessar uma das opções abaixo precisa digitar um numero:
           
           [1] - Entra como bibliotecário
           [2] - Entra como estudante
-          [3] - Sair do sistema ..
+          [3] - Sair 
           ''')
     print("="*70)
     try:
@@ -25,5 +35,6 @@ ATENÇÃO: lembre que para acessar uma das opções abaixo precisa digitar um nu
     except ValueError:
         print('ERRO, escolha uma das opçoes digitando o numero correspondente')
 
+menu_principal()
 
     
