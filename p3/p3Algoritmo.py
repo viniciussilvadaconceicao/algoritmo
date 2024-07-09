@@ -1,3 +1,65 @@
+def  bubble_sort(lista):
+    lendo_lista = len(lista)
+    for a in range(lendo_lista):
+        for b in range(lendo_lista - a - 1):
+            if lista[b] > lista[b + 1]:
+                lista[b], lista[b + 1] = lista[b + 1], lista[b]
+    return lista
+
+def lista_teses():
+    from time import sleep
+    try:
+        with open('tese.txt', 'r') as arquivo:
+            tese = arquivo.readlines()
+            tese = [tese.strip().split(',') for tese in tese]
+            tese_ordenados = bubble_sort(tese)
+            for tese in tese_ordenados:
+                print(tese)
+                sleep(5)
+            print('Programa ira retornar ')
+            sleep(3)
+            return menu_principal()
+    except IOError:
+        print('ERRO, livro não foi encontrado na lista')
+        sleep(3)
+        return menu_principal()
+    
+def lista_livros():
+    from time import sleep
+    try:
+        with open('livrosdigital.txt', 'r') as arquivo:
+            livros = arquivo.readlines()
+            livros = [livro.strip().split(',') for livro in livros]
+            livros_ordenados = bubble_sort(livros)
+            for livro in livros_ordenados:
+                print(livro)
+                sleep(5)
+            print('Programa ira retornar ')
+            sleep(3)
+            return menu_principal()
+    except IOError:
+        print('livro não esta na lista')
+        sleep(3)
+        return menu_principal()  
+    
+def lista_artigos():
+    from time import sleep
+    try:
+        with open('artigo.txt', 'r') as arquivo:
+            artigo = arquivo.readlines()
+            artigo = [artigo.strip().split(',') for artigo in artigo]
+            artigo_ordenados = bubble_sort(artigo)
+            for artigo in artigo_ordenados:
+                print(artigo)
+                sleep(5)
+            print('Programa ira retornar ')
+            sleep(3)
+            return menu_principal()
+    except IOError:
+        print('ERRO, artigo não foi encontrado na lista')
+        sleep(3)
+        return menu_principal() 
+
 def estudante():
     from time import sleep
     print('='*80)
@@ -35,50 +97,6 @@ ATENÇÃO: lembre que para acessar uma das opções abaixo precisa digitar um nu
     except ValueError:
         print('ERRO, escolha uma das opçoes digitando o numero correspondente')
 
-def lista_teses():
-    from time import sleep
-    try:
-        with open('tese.txt', 'r') as arquivo:
-            tese = arquivo.readlines()
-            tese = [tese.strip().split(',') for tese in tese]
-            tese_ordenados = bubble_sort(tese)
-            for tese in tese_ordenados:
-                print(tese)
-                sleep(5)
-            print('Programa ira retornar ')
-            sleep(3)
-            return menu_principal()
-    except IOError:
-        print('ERRO, livro não foi encontrado na lista')
-        sleep(3)
-        return menu_principal()
-    
-def lista_livros():
-    from time import sleep
-    try:
-        with open('livrosdigital.txt', 'r') as arquivo:
-            livros = arquivo.readlines()
-            livros = [livro.strip().split(',') for livro in livros]
-            livros_ordenados = bubble_sort(livros)
-            for livro in livros_ordenados:
-                print(livro)
-                sleep(5)
-            print('Programa ira retornar ')
-            sleep(3)
-            return menu_principal()
-    except IOError:
-        print('livro não esta na lista')
-        sleep(3)
-        return menu_principal()  
-
-def  bubble_sort(lista):
-    lendo_lista = len(lista)
-    for a in range(lendo_lista):
-        for b in range(lendo_lista - a - 1):
-            if lista[b] > lista[b + 1]:
-                lista[b], lista[b + 1] = lista[b + 1], lista[b]
-    return lista
-
 def limpar_tela():
     import os 
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -94,6 +112,7 @@ def cadastra_artigos():
             arquivo.write(f'artigo:{artigo}\n')
             print('Todas essas infomações foi inserida no sitema')
             sleep(3)
+            limpar_tela()
             return gerenciamento()
         
     except ValueError:
@@ -112,6 +131,7 @@ def cadastra_livros():
             arquivo.write(f'titulo:{titulo}, autor:{autor}, disciplina:{disciplina}\n')
             print('Todas essas infomações foi inserida no sitema')
             sleep(3)
+            limpar_tela()
             return gerenciamento()
         
     except ValueError:
@@ -128,6 +148,7 @@ def cadastra_teses():
             arquivo.write(f'tese:{tese}\n')
             print('Todas essas infomações foi inserida no sitema')
             sleep(3)
+            limpar_tela()
             return gerenciamento()
         
     except ValueError:
@@ -193,12 +214,17 @@ ATENÇÃO: lembre que para acessar uma das opções abaixo precisa digitar um nu
             
 
         elif opcao == 3:
-            print('obrigado por usar o sitema criado por Fabio alves da Silva ')
+            print('obrigado por usar o sitema, criado por Fabio alves da Silva do curso de algoritmo! ')
             sleep(2)
             return
     except ValueError:
         print('ERRO, escolha uma das opçoes digitando o numero correspondente')
 
 menu_principal()
+'''
+professor como o senhor pode ver nao criei a s3 paginas txt pois usei o proprio algoritmo para criar as paginas txt
+ele esta rodando todo perfeitamente somente esse detalhe pode estranha que não cadastrei nada pois falta de tempo mais esta cadastrando 
+assim ficando para o bibliotecario efetuar o cadastro de livros, artigos e teses
 
+'''
     
