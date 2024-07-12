@@ -14,19 +14,24 @@ empréstimo foi realizado com sucesso ou se o livro não está
 disponível.'''
 from time import sleep
 livros = ['livro1', 'livro2', 'livro3', 'livro4', 'livro5']
+
 def limpar_tela():
-    if name == 'nt':system('cls')else: system('clear')
+    import os 
+    os.system('cls'if os.name =='nt'else 'clear')
 
 
 def emprestimo():
     livro = str(input('escreva o nome do livro que deseja fazer o emprestimo: '))
     if livro in livros:
         print('livro emprestado com sucesso')
+        sleep(3)
         livros.remove(livro)
+        limpar_tela()
         return menu()
     else:
         print('Livro não disponivel')
         sleep(3)
+        limpar_tela()
         return menu()
 
 
@@ -54,8 +59,6 @@ ATENÇÃO para escolher precisa digitar a opção com numero correspondente
         print('Obrigado por usar nosso sistema')
         sleep(3)
         return
-
-
 
 menu()
     
