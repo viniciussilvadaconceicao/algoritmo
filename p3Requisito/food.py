@@ -4,6 +4,17 @@ uso é o "Adicionar Item ao Carrinho", onde um usuário pode selecionar
 um item disponível no cardápio e adicionar ao seu carrinho'''
 carrinho = []
 
+def adicionar_item():
+    item = str(input('Digite o nome do item que deseja adicionar ao carrinho: '))
+    carrinho.append(item)
+    rsp = str(input('Deseja adicionar mais itens ao carrinho? se sim digite S ou se não digite N  ')).upper()
+    if rsp == 'S':
+        adicionar_item()
+    else:
+        print('''Item adicionado com sucesso!
+os itens são:''')
+        for item in carrinho:
+            print(item)
 
 def menu():
     print('='*70)
@@ -16,14 +27,10 @@ escolha uma das opções abaixo:
     print('='*70)
     opcao = int(input("Digite a opção desejada: "))
     if opcao == 1:
-        print('''Os itens disponiveis são:
-              ''')
-        itens = ['pizza', 'hamburguer', 'batata frita', 'refrigerante', 'sorvete']
-        for item in itens:
-            print(item)
-        print()
         adicionar_item()
         
     elif opcao == 2:
         print('Obrigado por usar o sistema')
         return
+
+menu()
