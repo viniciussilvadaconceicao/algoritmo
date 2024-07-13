@@ -5,9 +5,15 @@ um item disponível no cardápio e adicionar ao seu carrinho'''
 carrinho = []
 
 def adicionar_item():
+    produto = ['pizza', 'hamburguer', 'açai', 'sushi', 'churrasco-misto']
+    print('''Os produtos disponiveis são:
+          ''')
+    for item in produto:
+        print(item)
+    print()
     item = str(input('Digite o nome do item que deseja adicionar ao carrinho: '))
     carrinho.append(item)
-    rsp = str(input('Deseja adicionar mais itens ao carrinho? se sim digite S ou se não digite N  ')).upper()
+    rsp = str(input('Quer adicionar outros produtos no carrinho? se sim digite S ou se não digite N  ')).upper()
     if rsp == 'S':
         adicionar_item()
     else:
@@ -34,3 +40,4 @@ escolha uma das opções abaixo:
         return
 
 menu()
+
